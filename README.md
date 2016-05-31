@@ -23,15 +23,15 @@ Run the following in order. Creating datasets can be done in parallel over train
 There are sample input files (./sampledata) that you can use to test the package first.
 
 
-	python create_torch_tensors.py --x ../sample_python_data/xtrain.npy --y ../sample_python_data/ytrain.npy --task 'train' --outdir ./sampledata/
+	1) python create_torch_tensors.py --x ../sample_python_data/xtrain.npy --y ../sample_python_data/ytrain.npy --task 'train' --outdir ./sampledata/
 
-	python create_torch_tensors.py --x ../sample_python_data/xtest.npy --y ../sample_python_data/ytest.npy --task 'test' --outdir ./sampledata/
+	2) python create_torch_tensors.py --x ../sample_python_data/xtest.npy --y ../sample_python_data/ytest.npy --task 'test' --outdir ./sampledata/
 
-	python create_torch_tensors.py --x ../sample_python_data/xvalid.npy --y ../sample_python_data/yvalid.npy --task 'valid' --outdir ./sampledata/
+	3) python create_torch_tensors.py --x ../sample_python_data/xvalid.npy --y ../sample_python_data/yvalid.npy --task 'valid' --outdir ./sampledata/
 
-	th create_batches.lua --task=train --input_dir=./sampledata --batch_output_dir=./sampleBatchDir 
+	4) th create_batches.lua --task=train --input_dir=./sampledata --batch_output_dir=./sampleBatchDir 
 
-	th create_batches.lua --task=valid --input_dir=./sampledata --batch_output_dir=./sampleBatchDir 
+	5) th create_batches.lua --task=valid --input_dir=./sampledata --batch_output_dir=./sampleBatchDir 
 
 	6) th create_batches.lua --task=scoretrain --input_dir=./sampledata --batch_output_dir=./sampleBatchDir 
 
