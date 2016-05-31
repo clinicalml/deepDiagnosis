@@ -3,7 +3,7 @@ A torch package for learning diagnosis models from temporal patient data.
 
 For more details please check http://arxiv.org/abs/1511.07938 
 
-Narges Razavian, David Sontag, "Temporal Convolutional Neural Networks for Diagnosis from Lab Tests", ICLR 2016 Workshop track. (To be updatd later with additional citation)
+Narges Razavian, David Sontag, "Temporal Convolutional Neural Networks for Diagnosis from Lab Tests", ICLR 2016 Workshop track. (To be updatd later with new citation)
 
 ----------------------------------------------------
 #Installation:
@@ -23,31 +23,31 @@ Run the following in order. Creating datasets can be done in parallel over train
 There are sample input files (./sampledata) that you can use to test the package first.
 
 
-1) python create_torch_tensors.py --x ../sample_python_data/xtrain.npy --y ../sample_python_data/ytrain.npy --task 'train' --outdir ./sampledata/
+	python create_torch_tensors.py --x ../sample_python_data/xtrain.npy --y ../sample_python_data/ytrain.npy --task 'train' --outdir ./sampledata/
 
-2) python create_torch_tensors.py --x ../sample_python_data/xtest.npy --y ../sample_python_data/ytest.npy --task 'test' --outdir ./sampledata/
+	python create_torch_tensors.py --x ../sample_python_data/xtest.npy --y ../sample_python_data/ytest.npy --task 'test' --outdir ./sampledata/
 
-3) python create_torch_tensors.py --x ../sample_python_data/xvalid.npy --y ../sample_python_data/yvalid.npy --task 'valid' --outdir ./sampledata/
+	python create_torch_tensors.py --x ../sample_python_data/xvalid.npy --y ../sample_python_data/yvalid.npy --task 'valid' --outdir ./sampledata/
 
-4) th create_batches.lua --task=train --input_dir=./sampledata --batch_output_dir=./sampleBatchDir 
+	th create_batches.lua --task=train --input_dir=./sampledata --batch_output_dir=./sampleBatchDir 
 
-5) th create_batches.lua --task=valid --input_dir=./sampledata --batch_output_dir=./sampleBatchDir 
+	th create_batches.lua --task=valid --input_dir=./sampledata --batch_output_dir=./sampleBatchDir 
 
-6) th create_batches.lua --task=scoretrain --input_dir=./sampledata --batch_output_dir=./sampleBatchDir 
+	6) th create_batches.lua --task=scoretrain --input_dir=./sampledata --batch_output_dir=./sampleBatchDir 
 
-7) th create_batches.lua --task=test --input_dir=./sampledata --batch_output_dir=./sampleBatchDir
+	7) th create_batches.lua --task=test --input_dir=./sampledata --batch_output_dir=./sampleBatchDir
 
 
-8) th train_and_validate.lua --task=train --input_batch_dir=./sampleBatchDir --save_models_dir=./sample_models/
+	8) th train_and_validate.lua --task=train --input_batch_dir=./sampleBatchDir --save_models_dir=./sample_models/
 
 
 Once the model is trained, run the following to get final evaluations on test set: (change the "lstm2016_05_29_10_11_01" into the model directory that you have created in step 8. Training directories have timestamp.)
 
 
-9) th train_and_validate.lua --task=test --validation_dir=./sample_models/lstm2016_05_29_10_11_01/
-
+	9) th train_and_validate.lua --task=test --validation_dir=./sample_models/lstm2016_05_29_10_11_01/
 
 Read the following for details on how to define your cohort and task.
+
 ----------------------------------------------------
 #Input: 
 
@@ -57,21 +57,21 @@ The package has the following options for input cohort.
 
 1) Python nympy arrays (also support cPickle) of size 
 
-	xtrain, xvalid, xtest: |labs| x |people| x |cohort time| for creating the input batches
+xtrain, xvalid, xtest: |labs| x |people| x |cohort time| for creating the input batches
 	
-	ytrain, yvalid, ytest: |diseases| x |people| x |cohort time| for creating the output batches and inclusion/exclusion for each batch member
+ytrain, yvalid, ytest: |diseases| x |people| x |cohort time| for creating the output batches and inclusion/exclusion for each batch member
 
 	
 2) Python numpy arrays (also support cPickle) of size
 
-	xtrain, xvalid, xtest: |Labs| x |people| x |cohort time| for the output
+xtrain, xvalid, xtest: |Labs| x |people| x |cohort time| for the output
 	
-	ytrain, yvalid, ytest: |diseases| x |people| for the output, where we do not have a concept of time.
+ytrain, yvalid, ytest: |diseases| x |people| for the output, where we do not have a concept of time.
 
 
 3) *advanced* Shelve databases, for our internal use.
 
-	Please refer to https://github.com/clinicalml/ckd_progression for details.
+Please refer to https://github.com/clinicalml/ckd_progression for details.
 
 ----------------------------------------------------
 #Intermediate data
