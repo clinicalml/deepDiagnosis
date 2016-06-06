@@ -90,10 +90,17 @@ function init()
 		input_format = 2
 		print('Y is detected to be of size |diseases| x |people|')
 		print('The following options are not used anymore: staged_training, exclusion, min_data_for_training_stage_y, min_icd9_cnt, diagnosis_gap, diagnosis_window,min_icd9_cnt_exclude.')	
+		if backward_window >= timecounts then
+			backward_window = timecounts
+			min_icd9_cnt_exclude = 0
+			exclude_already_onset = 0
+			staged_training = 0
+			print('just to remind you - the parameters are updated to --backward_window=' .. backward_window .. ' min_icd9_cnt_exclude='.. min_icd9_cnt_exclude ..' exclude_already_onset='.. exclude_already_onset .. ' staged training='..staged_training)
+		end
 	elseif (timecounts == datay:size(3)) then
 		input_format = 1
 		print('Y is detected to be of size |diseases| x |people| x |cohort time|.')
-		print('If specified, staged_training, exclusion and min_data_for_training_stage_y and min_icd9_cnt and min_icd9_cnt_exclude will be used appropriately.')
+		print('If specified, staged_training, exclusion and min_data_for_training_stage_y and min_icd9_cnt and min_icd9_cnt_exclude will be used appropriately.')		
 	end
 	if (peoplecounts ~= datay:size(2) and input_format == 2 ) then
 		print ('There is a problem with the size. X should be of size |labs| x |people| x |cohort time| and y should be of size |diseases| x |people|. Aborting.')
@@ -224,11 +231,8 @@ function build()
 
 			tmax = timecounts + 1
 			
-			if  (i > 0)	and (t > backward_window) and (t < tmax) 
-			and (datax[{{},{i},{t}}]:ne(0):sum() > 0)
-			and (datax[{{},{i},{t-backward_window + 1, t-1}}]:ne(0):sum(1):clone():ne(0):sum() > min_lab_months_measured)			
-			then
-				
+			if  (i > 0)	and (t >= backward_window) and (t < tmax) and (datax[{{},{i},{t}}]:ne(0):sum() > 0) 	then			
+
 				local input1 = datax[{{},{i},{t- backward_window + 1, t}}]:clone():view(1, 1, labcounts, backward_window)
 				local input = input1:clone()
 				local inputnnx = input:ne(0):clone():typeAs(input)
