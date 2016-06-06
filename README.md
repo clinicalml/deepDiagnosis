@@ -10,9 +10,9 @@ Narges Razavian, David Sontag, "Temporal Convolutional Neural Networks for Diagn
 
 The package has the following dependencies:
 
-Python: Numpy, CPickle
+Python: [Numpy](http://www.scipy.org/scipylib/download.html), [CPickle](https://pymotw.com/2/pickle/)
 
-LUA: Torch, cunn, nn, cutorch, gnuplot, optim, and rnn
+LUA: [Torch](http://torch.ch/docs/getting-started.html), [cunn](https://github.com/torch/cunn), [nn](https://github.com/torch/nn), [cutorch](https://github.com/torch/cutorch), [gnuplot](https://github.com/torch/gnuplot), [optim](https://github.com/torch/optim), and [rnn](https://github.com/Element-Research/rnn)
 
 ----------------------------------------------------
 #Usage:
