@@ -23,11 +23,11 @@ Run the following in order. Creating datasets can be done in parallel over train
 There are sample input files (./sampledata) that you can use to test the package first.
 
 
-	1) python create_torch_tensors.py --x ../sample_python_data/xtrain.npy --y ../sample_python_data/ytrain.npy --task 'train' --outdir ./sampledata/
+	1) python create_torch_tensors.py --x  sample_python_data/xtrain.npy --y sample_python_data/ytrain.npy --task 'train' --outdir ./sampledata/
 
-	2) python create_torch_tensors.py --x ../sample_python_data/xtest.npy --y ../sample_python_data/ytest.npy --task 'test' --outdir ./sampledata/
+	2) python create_torch_tensors.py --x sample_python_data/xtest.npy --y sample_python_data/ytest.npy --task 'test' --outdir ./sampledata/
 
-	3) python create_torch_tensors.py --x ../sample_python_data/xvalid.npy --y ../sample_python_data/yvalid.npy --task 'valid' --outdir ./sampledata/
+	3) python create_torch_tensors.py --x sample_python_data/xvalid.npy --y .ample_python_data/yvalid.npy --task 'valid' --outdir ./sampledata/
 
 	4) th create_batches.lua --task=train --input_dir=./sampledata --batch_output_dir=./sampleBatchDir 
 
@@ -72,6 +72,15 @@ ytrain, yvalid, ytest: |diseases| x |people| for the output, where we do not hav
 3) *advanced* Shelve databases, for our internal use.
 
 Please refer to https://github.com/clinicalml/ckd_progression for details.
+
+----------------------------------------------------
+#Synthetic Input for testing the package
+
+You can use the following to create synthetic numpy arrays to test the package;
+
+	python create_synthetic_data.py --outdir ./sample_python_data --N 30000  --D 15 --T 60 --O 20
+
+This code will create 3 datasets (train, test, valid) in the ./sample_python_data directory, with dimensions of: 5 x 10000 x 60 for each input x (xtrain, xtest, xvalid) and 20 x 10000 x 60 for each outcome set y.   his synthetic data correcsponds to input type 1 above.
 
 ----------------------------------------------------
 #Intermediate data
