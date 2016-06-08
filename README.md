@@ -61,7 +61,7 @@ xtrain, xvalid, xtest: |labs| x |people| x |cohort time| for creating the input 
 	
 ytrain, yvalid, ytest: |diseases| x |people| x |cohort time| for creating the output batches and inclusion/exclusion for each batch member
 
-![Here is an Imaginary input and output for a single person in this input setting.](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/overview.pdf "An imaginary input and output for a single person.").If you don't have the temporal aspect on the output, see option 2 for the input below.
+[Here is an Imaginary input and output for a single person in this input setting.](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/overview.pdf "An imaginary input and output for a single person.")If you don't have the temporal aspect on the output, see option 2 for the input below.
 
 ----
 	
