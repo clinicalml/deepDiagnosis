@@ -27,7 +27,7 @@ There are sample input files (./sample_python_data) that you can use to test the
 
 	2) python create_torch_tensors.py --x sample_python_data/xtest.pkl --y sample_python_data/ytest.pkl --task 'test' --outdir ./sampledata/
 
-	3) python create_torch_tensors.py --x sample_python_data/xvalid.pkl --y .ample_python_data/yvalid.pkl --task 'valid' --outdir ./sampledata/
+	3) python create_torch_tensors.py --x sample_python_data/xvalid.pkl --y sample_python_data/yvalid.pkl --task 'valid' --outdir ./sampledata/
 
 
 	4) th create_batches.lua --task=train --input_dir=./sampledata --batch_output_dir=./sampleBatchDir 
