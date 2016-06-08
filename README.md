@@ -74,6 +74,28 @@ ytrain, yvalid, ytest: |diseases| x |people| for the output, where we do not hav
 Please refer to https://github.com/clinicalml/ckd_progression for details.
 
 ----------------------------------------------------
+
+#Prediction Models:
+
+Currently the following models are supported. The details of the architectures are included in the citation paper below.
+
+
+0) Logistic Regression  (--model=max_logit)
+
+1) Feedforward network  (--model=mlp)
+
+2) Temporal Convolutional neural network over a backward window   (--model=convnet)
+
+3) Convolutional neural network over input and time dimension  (--model=convnet_mix)
+
+4) Multi-resolution temporal convolutional neural network  (--model=multiresconvnet)
+
+5) LSTM network over the backward window  (--model=lstmlast) (note: a version --model=lstmall is also available but we found training with lstmlast gives better results)
+
+6) Ensamble of multiple models  (to be added soon)
+
+
+----------------------------------------------------
 #Synthetic Input for testing the package
 
 You can use the following to create synthetic numpy arrays to test the package;
@@ -123,26 +145,6 @@ size: (batchSizeTrain, 1, labcounts, backward_window)
 
 Description: Tensor that includes per person per lab, the standard deviation value. This is useful if imputation is used and we want to normalize each time series before imputing. We store the standard deviations so that we can scale them back after imputation.
 
-----------------------------------------------------
-
-#Prediction Models:
-
-Currently the following models are supported. The details of the architectures are included in the citation paper below.
-
-
-0) Logistic Regression  (--model=max_logit)
-
-1) Feedforward network  (--model=mlp)
-
-2) Temporal Convolutional neural network over a backward window   (--model=convnet)
-
-3) Convolutional neural network over input and time dimension  (--model=convnet_mix)
-
-4) Multi-resolution temporal convolutional neural network  (--model=multiresconvnet)
-
-5) LSTM network over the backward window  (--model=lstmlast) (note: a version --model=lstmall is also available but we found training with lstmlast gives better results)
-
-6) Ensamble of multiple models  (to be added soon)
 
 ----------------------------------------------------
 
