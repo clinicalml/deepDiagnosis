@@ -51,9 +51,9 @@ Read the following for details on how to define your cohort and task.
 ----------------------------------------------------
 #Input: 
 
-
 The package has the following options for input cohort.
 
+----
 
 1) Python nympy arrays (also support cPickle) of size 
 
@@ -61,8 +61,9 @@ xtrain, xvalid, xtest: |labs| x |people| x |cohort time| for creating the input 
 	
 ytrain, yvalid, ytest: |diseases| x |people| x |cohort time| for creating the output batches and inclusion/exclusion for each batch member
 
-[An Imaginary input and output for a single person in this input setting.](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/overview.pdf "An imaginary input and output for a single person.").If you don't have the temporal aspect on the output, see option 2 for the input below.
+![Here is an Imaginary input and output for a single person in this input setting.](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/overview.pdf "An imaginary input and output for a single person.").If you don't have the temporal aspect on the output, see option 2 for the input below.
 
+----
 	
 2) Python numpy arrays (also support cPickle) of size
 
@@ -70,8 +71,9 @@ xtrain, xvalid, xtest: |Labs| x |people| x |cohort time| for the output
 	
 ytrain, yvalid, ytest: |diseases| x |people| for the output, where we do not have a concept of time.
 
+---
 
-3) *advanced* Shelve databases, for our internal use.
+3) *advanced* shelve databases, for our internal use.
 
 Please refer to https://github.com/clinicalml/ckd_progression for details.
 
