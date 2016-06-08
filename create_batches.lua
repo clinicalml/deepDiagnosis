@@ -95,7 +95,8 @@ function init()
 			min_icd9_cnt_exclude = 0
 			exclude_already_onset = 0
 			staged_training = 0
-			print('just to remind you - the parameters are updated to --backward_window=' .. backward_window .. ' min_icd9_cnt_exclude='.. min_icd9_cnt_exclude ..' exclude_already_onset='.. exclude_already_onset .. ' staged training='..staged_training)
+			normalize_each_timeseries = 0
+			print('just to remind you - the parameters are updated to --backward_window=' .. backward_window .. ' --min_icd9_cnt_exclude='.. min_icd9_cnt_exclude ..' --exclude_already_onset='.. exclude_already_onset .. ' --staged_training='..staged_training .. ' --normalize_each_timeseries='..normalize_each_timeseries)
 		end
 	elseif (timecounts == datay:size(3)) then
 		input_format = 1
