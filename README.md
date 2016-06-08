@@ -20,7 +20,7 @@ LUA: [Torch](http://torch.ch/docs/getting-started.html), [cunn](https://github.c
 
 Run the following in order. Creating datasets can be done in parallel over train/test/valid tasks. Up to you.
 
-There are sample input files (./sampledata) that you can use to test the package first.
+There are sample input files (./sample_python_data) that you can use to test the package first. 
 
 
 	1) python create_torch_tensors.py --x  sample_python_data/xtrain.npy --y sample_python_data/ytrain.npy --task 'train' --outdir ./sampledata/
@@ -74,13 +74,35 @@ ytrain, yvalid, ytest: |diseases| x |people| for the output, where we do not hav
 Please refer to https://github.com/clinicalml/ckd_progression for details.
 
 ----------------------------------------------------
+
+#Prediction Models:
+
+Currently the following models are supported. The details of the architectures are included in the citation paper below.
+
+
+0) Logistic Regression  (--model=max_logit)
+
+1) Feedforward network  (--model=mlp)
+
+2) Temporal Convolutional neural network over a backward window   (--model=convnet)
+
+3) Convolutional neural network over input and time dimension  (--model=convnet_mix)
+
+4) Multi-resolution temporal convolutional neural network  (--model=multiresconvnet)
+
+5) LSTM network over the backward window  (--model=lstmlast) (note: a version --model=lstmall is also available but we found training with lstmlast gives better results)
+
+6) Ensamble of multiple models  (to be added soon)
+
+
+----------------------------------------------------
 #Synthetic Input for testing the package
 
 You can use the following to create synthetic numpy arrays to test the package;
 
-	python create_synthetic_data.py --outdir ./sample_python_data --N 30000  --D 15 --T 60 --O 20
+	python create_synthetic_data.py --outdir ./sample_python_data --N 6000  --D 15 --T 48 -O 20
 
-This code will create 3 datasets (train, test, valid) in the ./sample_python_data directory, with dimensions of: 5 x 10000 x 60 for each input x (xtrain, xtest, xvalid) and 20 x 10000 x 60 for each outcome set y.   his synthetic data correcsponds to input type 1 above.
+This code will create 3 datasets (train, test, valid) in the ./sample_python_data directory, with dimensions of: 5 x  2000 x 48 for each input x (xtrain, xtest, xvalid) and 20 x  2000 x  48 for each outcome set y. This synthetic data correcsponds to input type 1 above. Follow steps 1-9 in the (Run) section above to test with this data, and feel free to test with other synthetic datasets.
 
 ----------------------------------------------------
 #Intermediate data
@@ -123,26 +145,6 @@ size: (batchSizeTrain, 1, labcounts, backward_window)
 
 Description: Tensor that includes per person per lab, the standard deviation value. This is useful if imputation is used and we want to normalize each time series before imputing. We store the standard deviations so that we can scale them back after imputation.
 
-----------------------------------------------------
-
-#Prediction Models:
-
-Currently the following models are supported. The details of the architectures are included in the citation paper below.
-
-
-0) Logistic Regression
-
-1) Feedforward network
-
-2) Temporal Convolutional neural network over a backward window
-
-3) Convolutional neural network over input and time dimension
-
-4) Multi-resolution temporal convolutional neural network
-
-5) LSTM network over the backward window
-
-6) Ensamble of multiple models
 
 ----------------------------------------------------
 
