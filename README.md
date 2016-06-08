@@ -88,13 +88,15 @@ Currently the following models are supported. The details of the architectures a
 
 1) Feedforward network  (--model=mlp)
 
-2) Temporal Convolutional neural network over a backward window   (--model=convnet)
+2) Temporal Convolutional neural network over a backward window   (--model=convnet) 
 
-3) Convolutional neural network over input and time dimension  (--model=convnet_mix)
+3) Convolutional neural network over input and time dimension  (--model=convnet_mix)  [Overview](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/conv_arch2.pdf "Overview")
 
 4) Multi-resolution temporal convolutional neural network  (--model=multiresconvnet)
+[Overview](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/conv_arch1pdf "Overview")
 
 5) LSTM network over the backward window  (--model=lstmlast) (note: a version --model=lstmall is also available but we found training with lstmlast gives better results)
+[Overview](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/lstm_last.pdf"Overview")
 
 6) Ensamble of multiple models  (to be added soon)
 
