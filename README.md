@@ -23,9 +23,9 @@ Run the following in order. Creating datasets can be done in parallel over train
 There are sample input files (./sample_python_data) that you can use to test the package first. 
 
 
-	1) python create_torch_tensors.py --x  sample_python_data/xtrain.pkl -y sample_python_data/ytrain.pkl --task 'train' --outdir ./sampledata/
+	1) python create_torch_tensors.py --x  sample_python_data/xtrain.pkl --y sample_python_data/ytrain.pkl --task 'train' --outdir ./sampledata/
 
-	2) python create_torch_tensors.py --x sample_python_data/xtest.pkl -y sample_python_data/ytest.pkl --task 'test' --outdir ./sampledata/
+	2) python create_torch_tensors.py --x sample_python_data/xtest.pkl --y sample_python_data/ytest.pkl --task 'test' --outdir ./sampledata/
 
 	3) python create_torch_tensors.py --x sample_python_data/xvalid.pkl --y .ample_python_data/yvalid.pkl --task 'valid' --outdir ./sampledata/
 
@@ -107,7 +107,7 @@ Currently the following models are supported. The details of the architectures a
 
 You can use the following to create synthetic numpy arrays to test the package;
 
-	python create_synthetic_data.py --outdir ./sample_python_data --N 6000  --D 15 --T 48 -O 20
+	python create_synthetic_data.py --outdir ./sample_python_data --N 6000  --D 15 --T 48 --O 20
 
 This code will create 3 datasets (train, test, valid) in the ./sample_python_data directory, with dimensions of: 5 x  2000 x 48 for each input x (xtrain, xtest, xvalid) and 20 x  2000 x  48 for each outcome set y. This synthetic data correcsponds to input type 1 above. Follow steps 1-9 in the (Run) section above to test with this data, and feel free to test with other synthetic datasets.
 
