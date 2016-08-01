@@ -51,6 +51,7 @@ Once the model is trained, run the following to get final evaluations on test se
 Read the following for details on how to define your cohort and task.
 
 #Input: 
+Input should be one of the two formats descrubed below:
 
 ![Here is an Imaginary input and output for a single person in 2 input setting.](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/input_formats.png)
 
@@ -80,7 +81,7 @@ Please refer to https://github.com/clinicalml/ckd_progression for details.
 Currently the following models are supported. The details of the architectures are included in the citation paper below.
 
 1) Logistic Regression  (--model=max_logit)
-![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/max_logit.png )
+![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/maxlogit.png )
 
 2) Feedforward network  (--model=mlp)
 ![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/mlp.png )
