@@ -1,9 +1,13 @@
 # deepDiagnosis
 A torch package for learning diagnosis models from temporal patient data.
 
-For more details please check http://arxiv.org/abs/1511.07938 
+For more details please check:
 
-Narges Razavian, David Sontag, "Temporal Convolutional Neural Networks for Diagnosis from Lab Tests", ICLR 2016 Workshop track. (To be updatd later with new citation)
+1) http://arxiv.org/abs/1511.07938 
+Narges Razavian, David Sontag, "Temporal Convolutional Neural Networks for Diagnosis from Lab Tests", ICLR 2016 Workshop track. 
+
+2) [link to be updated]
+Narges Razavian, Jake Marcus, David Sontag,"Multi-task Prediction of Disease Onsets from Longitudinal Lab Tests", Machine Learning for Healthcare, 2016
 
 ----------------------------------------------------
 #Installation:
@@ -16,7 +20,6 @@ LUA: [Torch](http://torch.ch/docs/getting-started.html), [cunn](https://github.c
 
 ----------------------------------------------------
 #Usage:
-
 
 Run the following in order. Creating datasets can be done in parallel over train/test/valid tasks. Up to you.
 
@@ -52,6 +55,8 @@ Read the following for details on how to define your cohort and task.
 ----------------------------------------------------
 #Input: 
 
+![Here is an Imaginary input and output for a single person in 2 input setting.](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/input_formats.png)
+
 The package has the following options for input cohort.
 
 ----
@@ -62,9 +67,9 @@ xtrain, xvalid, xtest: |labs| x |people| x |cohort time| for creating the input 
 	
 ytrain, yvalid, ytest: |diseases| x |people| x |cohort time| for creating the output batches and inclusion/exclusion for each batch member
 
-[Here is an Imaginary input and output for a single person in this input setting.](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/overview.pdf "An imaginary input and output for a single person.")If you don't have the temporal aspect on the output, see option 2 for the input below.
-
 ----
+If you don't have the temporal aspect on the output, see option 2 for the input below.
+
 	
 2) Python numpy arrays (also support cPickle) of size
 
