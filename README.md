@@ -53,25 +53,28 @@ Read the following for details on how to define your cohort and task.
 #Input: 
 Input should be one of the two formats descrubed below:
 
+
 ![Here is an Imaginary input and output for a single person in 2 input setting.](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/input_formats.png)
+
 
 Read below for the details:
 
-1) Python nympy arrays (also support cPickle) of size 
+Format 1) Python nympy arrays (also support cPickle) of size 
 
 xtrain, xvalid, xtest: |labs| x |people| x |cohort time| for creating the input batches
 	
 ytrain, yvalid, ytest: |diseases| x |people| x |cohort time| for creating the output batches and inclusion/exclusion for each batch member
 
 
-2) Python numpy arrays (also support cPickle) of size
+Format 2) Python numpy arrays (also support cPickle) of size
 
 xtrain, xvalid, xtest: |Labs| x |people| x |cohort time| for the output
 	
 ytrain, yvalid, ytest: |diseases| x |people| for the output, where we do not have a concept of time.
 
+(Note that in format 2 you can also provide exclusion-per-disease for input. If you need that version, let me know and I'll update that part immediately.) 
 
-3) *advanced* shelve databases, for our internal use.
+Format 3) *advanced* shelve databases, for our internal use.
 
 Please refer to https://github.com/clinicalml/ckd_progression for details.
 
@@ -80,29 +83,36 @@ Please refer to https://github.com/clinicalml/ckd_progression for details.
 
 Currently the following models are supported. The details of the architectures are included in the citation paper below.
 
+
 1) Logistic Regression  (--model=max_logit)
 
 ![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/maxlogit.png )
+
 
 2) Feedforward network  (--model=mlp)
 
 ![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/mlp.png )
 
+
 3) Temporal Convolutional neural network over a backward window   (--model=convnet) 
 
 ![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/arch1.png )
+
 
 4) Convolutional neural network over input and time dimension  (--model=convnet_mix)
 
 ![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/conv_arch2.png )
 
+
 5) Multi-resolution temporal convolutional neural network  (--model=multiresconvnet)
 
 ![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/conv_arch1.png)
 
+
 6) LSTM network over the backward window  (--model=lstmlast) (note: a version --model=lstmall is also available but we found training with lstmlast gives better results)
 
 ![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/lstm_last.png )
+
 
 7) Ensamble of multiple models  (to be added soon)
 
@@ -116,14 +126,21 @@ You can use the following to create synthetic numpy arrays to test the package;
 This code will create 3 datasets (train, test, valid) in the ./sample_python_data directory, with dimensions of: 5 x  2000 x 48 for each input x (xtrain, xtest, xvalid) and 20 x  2000 x  48 for each outcome set y. This synthetic data correcsponds to input type 1 above. Follow steps 1-9 in the (Run) section above to test with this data, and feel free to test with other synthetic datasets.
 
 #Citation: [Will be updated soon]
+	@article{razavian2015temporal,
+	  title={Multi-task Prediction of Disease Onsets from Longitudinal Lab Tests},
+	  author={Razavian, Narges and Marcus,Jake and Sontag, David},
+	  journal={JMLR - Special Issue on Machine Learning for Healthcare},
+	  year={2016}
+	}
 
-1) http://arxiv.org/abs/1511.07938 
-Narges Razavian, David Sontag, "Temporal Convolutional Neural Networks for Diagnosis from Lab Tests", ICLR 2016 Workshop track. 
+	@article{razavian2015temporal,
+	  title={Temporal Convolutional Neural Networks for Diagnosis from Lab Tests},
+	  author={Razavian, Narges and Sontag, David},
+	  journal={arXiv preprint arXiv:1511.07938},
+	  year={2015}
+	}
 
-2) [link to be updated]
-Narges Razavian, Jake Marcus, David Sontag,"Multi-task Prediction of Disease Onsets from Longitudinal Lab Tests", Machine Learning for Healthcare, 2016
-
-#Contact
+#Bug reports, questions, and Contact:
 
 For any questions please email:
 narges razavian [narges.sharif@gmail.com or https://github.com/narges-rzv/]
