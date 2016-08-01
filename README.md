@@ -81,19 +81,27 @@ Please refer to https://github.com/clinicalml/ckd_progression for details.
 Currently the following models are supported. The details of the architectures are included in the citation paper below.
 
 1) Logistic Regression  (--model=max_logit)
+
 ![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/maxlogit.png )
 
 2) Feedforward network  (--model=mlp)
+
 ![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/mlp.png )
+
 3) Temporal Convolutional neural network over a backward window   (--model=convnet) 
+
 ![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/arch1.png )
 
-4) Convolutional neural network over input and time dimension  (--model=convnet_mix)  ![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/conv_arch2.png )
+4) Convolutional neural network over input and time dimension  (--model=convnet_mix)
+
+![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/conv_arch2.png )
 
 5) Multi-resolution temporal convolutional neural network  (--model=multiresconvnet)
+
 ![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/conv_arch1.png)
 
 6) LSTM network over the backward window  (--model=lstmlast) (note: a version --model=lstmall is also available but we found training with lstmlast gives better results)
+
 ![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/lstm_last.png )
 
 7) Ensamble of multiple models  (to be added soon)
