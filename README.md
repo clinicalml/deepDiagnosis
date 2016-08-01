@@ -105,49 +105,7 @@ You can use the following to create synthetic numpy arrays to test the package;
 
 This code will create 3 datasets (train, test, valid) in the ./sample_python_data directory, with dimensions of: 5 x  2000 x 48 for each input x (xtrain, xtest, xvalid) and 20 x  2000 x  48 for each outcome set y. This synthetic data correcsponds to input type 1 above. Follow steps 1-9 in the (Run) section above to test with this data, and feel free to test with other synthetic datasets.
 
-#Intermediate data
-
-Given the input, create_batches.lua creates mini-batches and save them on disk. These files are created:
-
-1) bix_*_batch_input
-
-size: (batchSize, 1, labcounts, backward_window)
-
-Description: Tensor of the input. Values could be binary (i.e. if disease history, medications)  or continuous (observed lab values)
-
-2) bix_*batch_input_nnx
-
-size:(batchSize, 1, labcounts, backward_window)
-
-Description: Tensor of a binary indicator for whether or not the input was observed.
-
-3) bix_*_batch_target
-
-size: (batchSize, diseasecount, 1, 1)
-
-Description: Tensor of binary indicators for outcomes.
-
-4) bix_*_batch_tobe_excluded_outcomes 
-
-size: (batchSize, diseasecount, 1, 1)
-
-Description: Tensor of binary indicators for whether or not each member in the batch would need to be excluded for each outcome. (We have the option to exclude people who already have an outcome)
-
-5) bix_*_batch_mu
-
-size: (batchSizeTrain, 1, labcounts, backward_window)
-
-Description: Tensor that includes per person per lab, the mean value. This is useful if imputation is used and we want to normalize each time series before imputing. We store the means so that we can scale them back after imputation.
-
-6) bix_*_batch_std
-
-size: (batchSizeTrain, 1, labcounts, backward_window)
-
-Description: Tensor that includes per person per lab, the standard deviation value. This is useful if imputation is used and we want to normalize each time series before imputing. We store the standard deviations so that we can scale them back after imputation.
-
-
 #Citation: [Will be updated soon]
-
 
 1) http://arxiv.org/abs/1511.07938 
 Narges Razavian, David Sontag, "Temporal Convolutional Neural Networks for Diagnosis from Lab Tests", ICLR 2016 Workshop track. 
