@@ -86,6 +86,7 @@ Currently the following models are supported. The details of the architectures a
 2) Feedforward network  (--model=mlp)
 ![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/mlp.png )
 3) Temporal Convolutional neural network over a backward window   (--model=convnet) 
+![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/arch1.png )
 
 4) Convolutional neural network over input and time dimension  (--model=convnet_mix)  ![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/conv_arch2.png )
 
