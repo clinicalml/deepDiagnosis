@@ -9,7 +9,6 @@ Narges Razavian, David Sontag, "Temporal Convolutional Neural Networks for Diagn
 2) [link to be updated]
 Narges Razavian, Jake Marcus, David Sontag,"Multi-task Prediction of Disease Onsets from Longitudinal Lab Tests", Machine Learning for Healthcare, 2016
 
-----------------------------------------------------
 #Installation:
 
 The package has the following dependencies:
@@ -18,7 +17,6 @@ Python: [Numpy](http://www.scipy.org/scipylib/download.html), [CPickle](https://
 
 LUA: [Torch](http://torch.ch/docs/getting-started.html), [cunn](https://github.com/torch/cunn), [nn](https://github.com/torch/nn), [cutorch](https://github.com/torch/cutorch), [gnuplot](https://github.com/torch/gnuplot), [optim](https://github.com/torch/optim), and [rnn](https://github.com/Element-Research/rnn)
 
-----------------------------------------------------
 #Usage:
 
 Run the following in order. Creating datasets can be done in parallel over train/test/valid tasks. Up to you.
@@ -52,14 +50,11 @@ Once the model is trained, run the following to get final evaluations on test se
 
 Read the following for details on how to define your cohort and task.
 
-----------------------------------------------------
 #Input: 
 
 ![Here is an Imaginary input and output for a single person in 2 input setting.](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/input_formats.png)
 
-The package has the following options for input cohort.
-
-----
+Read below for the details:
 
 1) Python nympy arrays (also support cPickle) of size 
 
@@ -67,47 +62,41 @@ xtrain, xvalid, xtest: |labs| x |people| x |cohort time| for creating the input 
 	
 ytrain, yvalid, ytest: |diseases| x |people| x |cohort time| for creating the output batches and inclusion/exclusion for each batch member
 
-----
-If you don't have the temporal aspect on the output, see option 2 for the input below.
 
-	
 2) Python numpy arrays (also support cPickle) of size
 
 xtrain, xvalid, xtest: |Labs| x |people| x |cohort time| for the output
 	
 ytrain, yvalid, ytest: |diseases| x |people| for the output, where we do not have a concept of time.
 
----
 
 3) *advanced* shelve databases, for our internal use.
 
 Please refer to https://github.com/clinicalml/ckd_progression for details.
 
-----------------------------------------------------
 
 #Prediction Models:
 
 Currently the following models are supported. The details of the architectures are included in the citation paper below.
 
+1) Logistic Regression  (--model=max_logit)
+![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/max_logit.png )
 
-0) Logistic Regression  (--model=max_logit)
+2) Feedforward network  (--model=mlp)
+![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/mlp.png )
+3) Temporal Convolutional neural network over a backward window   (--model=convnet) 
 
-1) Feedforward network  (--model=mlp)
+4) Convolutional neural network over input and time dimension  (--model=convnet_mix)  ![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/conv_arch2.png )
 
-2) Temporal Convolutional neural network over a backward window   (--model=convnet) 
+5) Multi-resolution temporal convolutional neural network  (--model=multiresconvnet)
+![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/conv_arch1.png)
 
-3) Convolutional neural network over input and time dimension  (--model=convnet_mix)  [Overview](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/conv_arch2.pdf "Overview")
+6) LSTM network over the backward window  (--model=lstmlast) (note: a version --model=lstmall is also available but we found training with lstmlast gives better results)
+![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/lstm_last.png )
 
-4) Multi-resolution temporal convolutional neural network  (--model=multiresconvnet)
-[Overview](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/conv_arch1.pdf "Overview")
-
-5) LSTM network over the backward window  (--model=lstmlast) (note: a version --model=lstmall is also available but we found training with lstmlast gives better results)
-[Overview](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/lstm_last.pdf "Overview")
-
-6) Ensamble of multiple models  (to be added soon)
+7) Ensamble of multiple models  (to be added soon)
 
 
-----------------------------------------------------
 #Synthetic Input for testing the package
 
 You can use the following to create synthetic numpy arrays to test the package;
@@ -116,7 +105,6 @@ You can use the following to create synthetic numpy arrays to test the package;
 
 This code will create 3 datasets (train, test, valid) in the ./sample_python_data directory, with dimensions of: 5 x  2000 x 48 for each input x (xtrain, xtest, xvalid) and 20 x  2000 x  48 for each outcome set y. This synthetic data correcsponds to input type 1 above. Follow steps 1-9 in the (Run) section above to test with this data, and feel free to test with other synthetic datasets.
 
-----------------------------------------------------
 #Intermediate data
 
 Given the input, create_batches.lua creates mini-batches and save them on disk. These files are created:
@@ -158,18 +146,17 @@ size: (batchSizeTrain, 1, labcounts, backward_window)
 Description: Tensor that includes per person per lab, the standard deviation value. This is useful if imputation is used and we want to normalize each time series before imputing. We store the standard deviations so that we can scale them back after imputation.
 
 
-----------------------------------------------------
-
 #Citation: [Will be updated soon]
 
-Narges Razavian, David Sontag, "Temporal Convolutional Neural Networks 
-for Diagnosis from Lab Tests", ICLR 2016 Workshop track.
-Link: http://arxiv.org/abs/1511.07938 
 
-----------------------------------------------------
+1) http://arxiv.org/abs/1511.07938 
+Narges Razavian, David Sontag, "Temporal Convolutional Neural Networks for Diagnosis from Lab Tests", ICLR 2016 Workshop track. 
+
+2) [link to be updated]
+Narges Razavian, Jake Marcus, David Sontag,"Multi-task Prediction of Disease Onsets from Longitudinal Lab Tests", Machine Learning for Healthcare, 2016
+
 #Contact
 
 For any questions please email:
-
 narges razavian [narges.sharif@gmail.com or https://github.com/narges-rzv/]
 
