@@ -126,7 +126,7 @@ You can use the following to create synthetic numpy arrays to test the package;
 This code will create 3 datasets (train, test, valid) in the ./sample_python_data directory, with dimensions of: 5 x  2000 x 48 for each input x (xtrain, xtest, xvalid) and 20 x  2000 x  48 for each outcome set y. This synthetic data correcsponds to input type 1 above. Follow steps 1-9 in the (Run) section above to test with this data, and feel free to test with other synthetic datasets.
 
 #Citation: [Will be updated soon]
-	@article{razavian2015temporal,
+	@article{razavian2016temporal,
 	  title={Multi-task Prediction of Disease Onsets from Longitudinal Lab Tests},
 	  author={Razavian, Narges and Marcus,Jake and Sontag, David},
 	  journal={JMLR - Special Issue on Machine Learning for Healthcare},
