@@ -5,9 +5,11 @@ For more details please check:
 
 
 1) http://arxiv.org/abs/1608.00647
+
 Narges Razavian, Jake Marcus, David Sontag,"Multi-task Prediction of Disease Onsets from Longitudinal Lab Tests", Machine Learning for Healthcare, 2016
 
-2) http://arxiv.org/abs/1511.07938 
+2) http://arxiv.org/abs/1511.07938
+
 Narges Razavian, David Sontag, "Temporal Convolutional Neural Networks for Diagnosis from Lab Tests", ICLR 2016 Workshop track. 
 
 #Installation:
