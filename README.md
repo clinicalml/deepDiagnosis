@@ -3,11 +3,12 @@ A torch package for learning diagnosis models from temporal patient data.
 
 For more details please check:
 
-1) http://arxiv.org/abs/1511.07938 
-Narges Razavian, David Sontag, "Temporal Convolutional Neural Networks for Diagnosis from Lab Tests", ICLR 2016 Workshop track. 
 
-2) [link to be updated]
+1) http://arxiv.org/abs/1608.00647
 Narges Razavian, Jake Marcus, David Sontag,"Multi-task Prediction of Disease Onsets from Longitudinal Lab Tests", Machine Learning for Healthcare, 2016
+
+2) http://arxiv.org/abs/1511.07938 
+Narges Razavian, David Sontag, "Temporal Convolutional Neural Networks for Diagnosis from Lab Tests", ICLR 2016 Workshop track. 
 
 #Installation:
 
@@ -51,7 +52,7 @@ Once the model is trained, run the following to get final evaluations on test se
 Read the following for details on how to define your cohort and task.
 
 #Input: 
-Input should be one of the two formats descrubed below:
+Input should be one of the two formats described below:
 
 
 ![Here is an Imaginary input and output for a single person in 2 input setting.](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/input_formats.png)
@@ -114,7 +115,7 @@ Currently the following models are supported. The details of the architectures a
 ![](https://github.com/clinicalml/deepDiagnosis/blob/master/doc/lstm_last.png )
 
 
-7) Ensamble of multiple models  (to be added soon)
+7) Ensemble of multiple models  (to be added soon)
 
 
 #Synthetic Input for testing the package
@@ -123,13 +124,13 @@ You can use the following to create synthetic numpy arrays to test the package;
 
 	python create_synthetic_data.py --outdir ./sample_python_data --N 6000  --D 15 --T 48 --O 20
 
-This code will create 3 datasets (train, test, valid) in the ./sample_python_data directory, with dimensions of: 5 x  2000 x 48 for each input x (xtrain, xtest, xvalid) and 20 x  2000 x  48 for each outcome set y. This synthetic data correcsponds to input type 1 above. Follow steps 1-9 in the (Run) section above to test with this data, and feel free to test with other synthetic datasets.
+This code will create 3 datasets (train, test, valid) in the ./sample_python_data directory, with dimensions of: 5 x  2000 x 48 for each input x (xtrain, xtest, xvalid) and 20 x  2000 x  48 for each outcome set y. This synthetic data corresponds to input type 1 above. Follow steps 1-9 in the (Run) section above to test with this data, and feel free to test with other synthetic datasets.
 
-#Citation: [Will be updated soon]
+#Citation: 
 	@article{razavian2016temporal,
 	  title={Multi-task Prediction of Disease Onsets from Longitudinal Lab Tests},
 	  author={Razavian, Narges and Marcus,Jake and Sontag, David},
-	  journal={JMLR - Special Issue on Machine Learning for Healthcare},
+	  journal={arXiv preprint arXiv:1608.00647},
 	  year={2016}
 	}
 
