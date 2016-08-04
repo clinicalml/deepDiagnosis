@@ -6,7 +6,7 @@ For more details please check:
 
 1) http://arxiv.org/abs/1608.00647
 
-Narges Razavian, Jake Marcus, David Sontag,"Multi-task Prediction of Disease Onsets from Longitudinal Lab Tests", Machine Learning for Healthcare, 2016
+Narges Razavian, Jake Marcus, David Sontag,"Multi-task Prediction of Disease Onsets from Longitudinal Lab Tests", Machine Learning and Healthcare, 2016
 
 2) http://arxiv.org/abs/1511.07938
 
@@ -132,7 +132,7 @@ This code will create 3 datasets (train, test, valid) in the ./sample_python_dat
 	@article{razavian2016temporal,
 	  title={Multi-task Prediction of Disease Onsets from Longitudinal Lab Tests},
 	  author={Razavian, Narges and Marcus,Jake and Sontag, David},
-	  journal={arXiv preprint arXiv:1608.00647},
+	  journal={1st Conference on Machine Learning and Health Care (MLHC)},
 	  year={2016}
 	}
 
